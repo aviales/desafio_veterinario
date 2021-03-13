@@ -1,0 +1,2 @@
+class PetHistory < ApplicationRecord
+end
