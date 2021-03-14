@@ -13,10 +13,12 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @pets = Pet.pluck :name, :id 
   end
 
   # GET /clients/1/edit
   def edit
+    @pets = Pet.pluck :name, :id 
   end
 
   # POST /clients or /clients.json
@@ -64,6 +66,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.fetch(:client, {})
+      params.require(:client).permit(:name, :phone_number, :email, :pet_name)
     end
 end

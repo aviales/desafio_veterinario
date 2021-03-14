@@ -1,4 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_pet_history_path(@pet_history) %> |
-<%= link_to 'Back', pet_histories_path %>
+<div class="container">
+  <p>
+    <strong>Weight:</strong>
+    <%= @pet_history.weight %>
+  </p>
+  
+  <p>
+    <strong>Height:</strong>
+    <%= @pet_history.height %>
+  </p>
+  
+  <p>
+    <strong>Description:</strong>
+    <%= @pet_history.description %>
+  </p>
+  
+  <p>
+    <strong>Pet:</strong>
+    <%= @pet_history.pet_name %>
+  </p>
+  
+  <%= link_to 'Edit', edit_pet_history_path(@pet_history) %> |
+  <%= link_to 'Back', pet_histories_path %>
+  <%= link_to 'Main', clients_path %>
+</div>
+

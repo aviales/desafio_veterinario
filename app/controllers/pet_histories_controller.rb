@@ -13,10 +13,12 @@ class PetHistoriesController < ApplicationController
   # GET /pet_histories/new
   def new
     @pet_history = PetHistory.new
+    @pets = Pet.pluck :name, :id 
   end
 
   # GET /pet_histories/1/edit
   def edit
+    @pets = Pet.pluck :name, :id 
   end
 
   # POST /pet_histories or /pet_histories.json
@@ -64,6 +66,6 @@ class PetHistoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_history_params
-      params.fetch(:pet_history, {})
+      params.require(:pet_history).permit(:weight, :height, :description, :pet_id)
     end
 end

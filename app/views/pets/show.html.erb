@@ -1,4 +1,66 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<div class="container">
+  <p>
+    <strong>Name:</strong>
+    <%= @pet.name %>
+  </p>
+  
+  <p>
+    <strong>Breed:</strong>
+    <%= @pet.breed %>
+  </p>
+  
+  <p>
+    <strong>Birthday:</strong>
+    <%= @pet.birthday %>
+  </p>
+  
+  <br>
+  
+  <h3>Pet_history</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Weight</th>
+        <th>Height</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @pet.pet_histories.each do |pet_history| %>
+        <tr>
+          <td><%= pet_history.weight %></td>
+          <td><%= pet_history.height %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Average Weight</th>
+        <th>Average Height</th>
+        <th>Max Weight</th>
+        <th>Max Height</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+        <tr>
+          <td><%= @pet.average_weight %></td>
+          <td><%= @pet.average_height %></td>
+          <td><%= @pet.max_weight %></td>
+          <td><%= @pet.max_height %></td>
+        </tr>
+    </tbody>
+  </table>
+  
+  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+  <%= link_to 'Back', pets_path %>
+  <%= link_to 'Main', clients_path %>
+</div>
+

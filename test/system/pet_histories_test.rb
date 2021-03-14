@@ -14,6 +14,10 @@ class PetHistoriesTest < ApplicationSystemTestCase
     visit pet_histories_url
     click_on "New Pet History"
 
+    fill_in "Description", with: @pet_history.description
+    fill_in "Height", with: @pet_history.height
+    fill_in "Pet", with: @pet_history.pet_id
+    fill_in "Weight", with: @pet_history.weight
     click_on "Create Pet history"
 
     assert_text "Pet history was successfully created"
@@ -24,6 +28,10 @@ class PetHistoriesTest < ApplicationSystemTestCase
     visit pet_histories_url
     click_on "Edit", match: :first
 
+    fill_in "Description", with: @pet_history.description
+    fill_in "Height", with: @pet_history.height
+    fill_in "Pet", with: @pet_history.pet_id
+    fill_in "Weight", with: @pet_history.weight
     click_on "Update Pet history"
 
     assert_text "Pet history was successfully updated"

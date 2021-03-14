@@ -14,6 +14,9 @@ class PetsTest < ApplicationSystemTestCase
     visit pets_url
     click_on "New Pet"
 
+    fill_in "Birthday", with: @pet.birthday
+    fill_in "Breed", with: @pet.breed
+    fill_in "Name", with: @pet.name
     click_on "Create Pet"
 
     assert_text "Pet was successfully created"
@@ -24,6 +27,9 @@ class PetsTest < ApplicationSystemTestCase
     visit pets_url
     click_on "Edit", match: :first
 
+    fill_in "Birthday", with: @pet.birthday
+    fill_in "Breed", with: @pet.breed
+    fill_in "Name", with: @pet.name
     click_on "Update Pet"
 
     assert_text "Pet was successfully updated"

@@ -1,4 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<div class="container">
+  <p>
+    <strong>Name:</strong>
+    <%= @client.name %>
+  </p>
+  
+  <p>
+    <strong>Phone number:</strong>
+    <%= @client.phone_number %>
+  </p>
+  
+  <p>
+    <strong>Email:</strong>
+    <%= @client.email %>
+  </p>
+  
+  <br>
+  
+  <h3>Client's pets</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Pet name</th>
+        <th>Max height</th>
+        <th>Max weight</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @client.pets.each do |pet| %>
+        <tr>
+          <td><%= pet.name %></td>
+          <td><%= pet.max_weight %></td>
+          <td><%= pet.max_height %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  
+  <%= link_to 'Edit', edit_client_path(@client) %> |
+  <%= link_to 'Back', clients_path %>
+</div>
+
